@@ -1,0 +1,13 @@
+index.html        // Main layout
+├── style.css         // Basic styling
+├── script.js         // Scroll + D3 logic
+├── data/
+│   ├── spy_prices.csv
+│   └── simulation.json
+└── assets/           // 
+
+[
+  { "year": 2008, "strategy": "lump", "return": -12 },
+  { "year": 2008, "strategy": "dca", "return": -5 },
+  ...
+]

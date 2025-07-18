@@ -1,0 +1,66 @@
+/* ===== Reset + Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* color palette */
+:root {
+  --blue:        #0077cc;
+  --navy:        #003f5c;
+  --green:       #00b26f;
+  --red:         #d62828;
+  --light-gray:  #f7f9fa;
+  --white:       #ffffff;
+  --dark-text:   #222222;
+  --muted-text:  #666666;
+  --highlight:   #ffc107;
+}
+
+html, body {
+  font-family: 'Lato', 'Arial', sans-serif;
+  background-color: #fdfdfd;
+  color: #222;
+  line-height: 1.6;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+a {
+	font-family: 'Lato', 'Arial', sans-serif;
+	font-size: 20px;
+	color: #666666;
+	background: none;
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+/* ===== Layout ===== */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ===== Narrative Sections ===== */
+.step {
+  position: relative;
+  margin: float;
+  padding: 40px;
+  transition: background-color 0.3s ease;
+}
+
+.step.active {
+  background-color: #eef7ff;
+}
+
+a:hover {
+	background-color: #00b26f; 
+	color: #eef7ff;
+	transition: 0.3s;
+}
+
