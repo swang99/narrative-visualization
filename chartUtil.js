@@ -33,27 +33,30 @@ export function investDateAnnotate(svg, x, marginTop, marginBottom, height, inve
 }
 
 /* calculation for a lump sum investment */
-export function lumpSumCalc(investment, investPrice, finalPrice) {
-	let shares = investment / investPrice;
-	let finalValue = shares * finalPrice;
-	return Math.round(finalValue, 2).toLocaleString();
+export function getLsDetails(postInvest, investment) {
+	let investPrice = postInvest[postInvest.length - 1].close;
+	let finalPrice = postInvest[0].close;
+	let numShares = investment / investPrice;
+	let finalValue = Math.round(numShares * finalPrice, 2);
+	return [ finalValue, numShares ];
 }
 
 /* calculation for DCA investment (12 monthly installments) */
-export function dcaCalc(investment, investDates, prices) {
+/* consolidate these two functions into one*/
+export function getDcaDetails(postInvest, investDates, investment) {
 	let monthlyInvestment = investment / investDates.length;
-	let shares = 0;
+	let numShares = 0;
 
 	for (let i = 0; i < investDates.length; i++) {
 		let nextInvestDate = investDates[i];
-		let priceOnDate = prices.find(
-			(inv) => inv.datetime.getTime() === nextInvestDate.getTime()).close;
-		let sharesBought = monthlyInvestment / priceOnDate;
-		shares += sharesBought
+		let priceOnDate = postInvest.find(
+			(inv) => (inv.datetime.getTime() === nextInvestDate.getTime())
+		).close;
+		numShares += monthlyInvestment / priceOnDate;
 	}
 
-	let finalValue = shares * prices[0].close;
-	return Math.round(finalValue, 2).toLocaleString();
+	let finalValue = Math.round(numShares * postInvest[0].close);
+	return [ finalValue, numShares ];
 }
 
 /* text block */
