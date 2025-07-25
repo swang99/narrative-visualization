@@ -11,17 +11,18 @@
   --navy:        #003f5c;
   --green:       #00b26f;
   --red:         #d62828;
-  --light-gray:  #f7f9fa;
+  --light-gray:  #b4b4b4;
+  --med-gray:    #b0afaf;
   --white:       #ffffff;
   --dark-text:   #222222;
-  --muted-text:  #666666;
+  --muted-text:  #010000;
   --highlight:   #ffc107;
 }
 
 html, body {
   font-family: 'Lato', 'Arial', sans-serif;
   background-color: #fdfdfd;
-  color: #222;
+  color: var(--dark-text);
   line-height: 1.6;
   height: 100%;
   overflow-x: hidden;
@@ -30,10 +31,11 @@ html, body {
 a {
 	font-family: 'Lato', 'Arial', sans-serif;
 	font-size: 20px;
-	color: #666666;
+	color: var(--muted-text);
 	background: none;
-	padding: 10px;
-	border-radius: 5px;
+	margin: 10px;
+	padding: 8px;
+	border-radius: 10px;
 	cursor: pointer;
 	text-decoration: none;
 	transition: 0.3s;
@@ -49,18 +51,33 @@ a {
 /* ===== Narrative Sections ===== */
 .step {
   position: relative;
-  margin: float;
   padding: 40px;
   transition: background-color 0.3s ease;
 }
 
 .step.active {
-  background-color: #eef7ff;
+  background-color: var(--light-gray);
 }
 
 a:hover {
-	background-color: #00b26f; 
-	color: #eef7ff;
+	background-color: var(--blue); 
+	color: var(--white);
 	transition: 0.3s;
 }
 
+.strategy-buttons {
+	width: 832px;
+}
+
+.frame-toggle {
+	display: flex;
+  	justify-content: center;
+}
+
+.gradient-legend {
+	margin: 20px;
+	border-radius: 5px;
+	width: 300px;
+	background: linear-gradient(to right, #4F7A46 0%, #ffffff 50%, #9B356C 100%);
+	color: #ffffff;
+}
