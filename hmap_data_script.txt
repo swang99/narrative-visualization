@@ -1,0 +1,75 @@
+export async function generateHmapData(dcaFreq) {
+	const data = await d3.json("data/spy_prices.json");
+
+	data.values.forEach(d => {
+		d.datetime = new Date(d.datetime);
+		d.close = +d.close;
+	});
+
+	const spyHist = data.values;
+	spyHist.sort((a, b) => a.datetime - b.datetime);
+
+	const durations = [1, 2, 3, 4, 5, 10];
+	const yearlyGroups = d3.group(spyHist, d => d.datetime.getFullYear());
+	const res = [];
+
+	for (let [year, yearData] of yearlyGroups.entries()) {
+		for (let dur of durations) {
+			const returns = {
+				lsTotal: 0,
+				dcaTotal: 0,
+				count: 0
+			};
+
+			for (let i = 0; i < yearData.length; i++) {
+				const startDate = yearData[i].datetime;
+				const startPrice = yearData[i].close;
+
+				// Find the end date `dur` years later
+				const targetEndDate = new Date(startDate);
+				targetEndDate.setFullYear(targetEndDate.getFullYear() + dur);
+
+				const endEntry = spyHist.find(d => d.datetime >= targetEndDate);
+				if (!endEntry) continue;
+
+				// Lump sum return
+				const lsReturn = (endEntry.close - startPrice) / startPrice;
+
+				// DCA return
+				let dcaShares = 0;
+				let monthlyInvestment = INVESTMENT / dcaFreq;
+				const startIdx = spyHist.findIndex(d => d.datetime.getTime() === startDate.getTime());
+
+				let validDCA = true;
+				for (let j = 0; j < dcaFreq; j++) {
+					const entry = spyHist[startIdx + j];
+					if (!entry) {
+						validDCA = false;
+						break;
+					}
+					dcaShares += monthlyInvestment / entry.close;
+				}
+
+				if (!validDCA) continue;
+
+				const dcaReturn = (dcaShares * endEntry.close - INVESTMENT) / INVESTMENT;
+
+				returns.lsTotal += lsReturn;
+				returns.dcaTotal += dcaReturn;
+				returns.count += 1;
+			}
+
+			if (returns.count > 0) {
+				res.push({
+					startYr: year,
+					duration: dur,
+					ls: +(returns.lsTotal / returns.count).toFixed(4),
+					dca: +(returns.dcaTotal / returns.count).toFixed(4)
+				});
+			}
+		}
+	}
+
+	console.log(res);
+	hmapFrame(res);
+}

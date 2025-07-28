@@ -21,7 +21,7 @@ function startStory() {
 		transDuration: transDuration,
 		numWaits: 0,
 		highlight: false,
-		color: "#d62828",
+		color: "#0077cc",
 		opacityOff: true
 	});
 
@@ -66,11 +66,13 @@ function startStory() {
 		
 		// show action buttons
 		const strategyButtons = d3.select(".strategy-buttons")
+			.style("opacity", 0)
+
 		strategyButtons.transition()
 			.delay(baseTime * (initDelay + stepTime * 5))
 			.duration(transDuration)
 			.style("opacity", 0.8)
-			.style("background-color", "#ffc107")
+			.style("background-color", "#bae2ffff")
 			.style("padding", "10px")
 			.style("border-radius", "10px")
 	});

@@ -1,0 +1,1040 @@
+[
+    {
+        "startYr": 1993,
+        "duration": 1,
+        "ls": 0.0139,
+        "dca": 0.0072
+    },
+    {
+        "startYr": 1993,
+        "duration": 2,
+        "ls": 0.2164,
+        "dca": 0.2081
+    },
+    {
+        "startYr": 1993,
+        "duration": 3,
+        "ls": 0.4973,
+        "dca": 0.4874
+    },
+    {
+        "startYr": 1993,
+        "duration": 4,
+        "ls": 0.9457,
+        "dca": 0.9323
+    },
+    {
+        "startYr": 1993,
+        "duration": 5,
+        "ls": 1.4244,
+        "dca": 1.408
+    },
+    {
+        "startYr": 1993,
+        "duration": 10,
+        "ls": 1.1511,
+        "dca": 1.1364
+    },
+    {
+        "startYr": 1994,
+        "duration": 1,
+        "ls": 0.1886,
+        "dca": 0.1871
+    },
+    {
+        "startYr": 1994,
+        "duration": 2,
+        "ls": 0.4668,
+        "dca": 0.4656
+    },
+    {
+        "startYr": 1994,
+        "duration": 3,
+        "ls": 0.9032,
+        "dca": 0.901
+    },
+    {
+        "startYr": 1994,
+        "duration": 4,
+        "ls": 1.3696,
+        "dca": 1.3666
+    },
+    {
+        "startYr": 1994,
+        "duration": 5,
+        "ls": 1.8961,
+        "dca": 1.893
+    },
+    {
+        "startYr": 1994,
+        "duration": 10,
+        "ls": 1.4652,
+        "dca": 1.4639
+    },
+    {
+        "startYr": 1995,
+        "duration": 1,
+        "ls": 0.2447,
+        "dca": 0.2082
+    },
+    {
+        "startYr": 1995,
+        "duration": 2,
+        "ls": 0.6089,
+        "dca": 0.5622
+    },
+    {
+        "startYr": 1995,
+        "duration": 3,
+        "ls": 1.0132,
+        "dca": 0.9542
+    },
+    {
+        "startYr": 1995,
+        "duration": 4,
+        "ls": 1.4585,
+        "dca": 1.3863
+    },
+    {
+        "startYr": 1995,
+        "duration": 5,
+        "ls": 1.6317,
+        "dca": 1.5539
+    },
+    {
+        "startYr": 1995,
+        "duration": 10,
+        "ls": 1.2312,
+        "dca": 1.1656
+    },
+    {
+        "startYr": 1996,
+        "duration": 1,
+        "ls": 0.302,
+        "dca": 0.2727
+    },
+    {
+        "startYr": 1996,
+        "duration": 2,
+        "ls": 0.6263,
+        "dca": 0.591
+    },
+    {
+        "startYr": 1996,
+        "duration": 3,
+        "ls": 0.9819,
+        "dca": 0.938
+    },
+    {
+        "startYr": 1996,
+        "duration": 4,
+        "ls": 1.117,
+        "dca": 1.0705
+    },
+    {
+        "startYr": 1996,
+        "duration": 5,
+        "ls": 0.7763,
+        "dca": 0.7386
+    },
+    {
+        "startYr": 1996,
+        "duration": 10,
+        "ls": 0.9491,
+        "dca": 0.9057
+    },
+    {
+        "startYr": 1997,
+        "duration": 1,
+        "ls": 0.259,
+        "dca": 0.2276
+    },
+    {
+        "startYr": 1997,
+        "duration": 2,
+        "ls": 0.5331,
+        "dca": 0.4952
+    },
+    {
+        "startYr": 1997,
+        "duration": 3,
+        "ls": 0.6374,
+        "dca": 0.5973
+    },
+    {
+        "startYr": 1997,
+        "duration": 4,
+        "ls": 0.3769,
+        "dca": 0.343
+    },
+    {
+        "startYr": 1997,
+        "duration": 5,
+        "ls": 0.153,
+        "dca": 0.1238
+    },
+    {
+        "startYr": 1997,
+        "duration": 10,
+        "ls": 0.697,
+        "dca": 0.6555
+    },
+    {
+        "startYr": 1998,
+        "duration": 1,
+        "ls": 0.2281,
+        "dca": 0.1987
+    },
+    {
+        "startYr": 1998,
+        "duration": 2,
+        "ls": 0.3115,
+        "dca": 0.2804
+    },
+    {
+        "startYr": 1998,
+        "duration": 3,
+        "ls": 0.0996,
+        "dca": 0.0732
+    },
+    {
+        "startYr": 1998,
+        "duration": 4,
+        "ls": -0.083,
+        "dca": -0.106
+    },
+    {
+        "startYr": 1998,
+        "duration": 5,
+        "ls": -0.1069,
+        "dca": -0.1289
+    },
+    {
+        "startYr": 1998,
+        "duration": 10,
+        "ls": 0.1199,
+        "dca": 0.0951
+    },
+    {
+        "startYr": 1999,
+        "duration": 1,
+        "ls": 0.0701,
+        "dca": 0.0565
+    },
+    {
+        "startYr": 1999,
+        "duration": 2,
+        "ls": -0.1022,
+        "dca": -0.1135
+    },
+    {
+        "startYr": 1999,
+        "duration": 3,
+        "ls": -0.2509,
+        "dca": -0.2609
+    },
+    {
+        "startYr": 1999,
+        "duration": 4,
+        "ls": -0.2715,
+        "dca": -0.2805
+    },
+    {
+        "startYr": 1999,
+        "duration": 5,
+        "ls": -0.1471,
+        "dca": -0.1581
+    },
+    {
+        "startYr": 1999,
+        "duration": 10,
+        "ls": -0.287,
+        "dca": -0.2959
+    },
+    {
+        "startYr": 2000,
+        "duration": 1,
+        "ls": -0.1609,
+        "dca": -0.1547
+    },
+    {
+        "startYr": 2000,
+        "duration": 2,
+        "ls": -0.3017,
+        "dca": -0.2968
+    },
+    {
+        "startYr": 2000,
+        "duration": 3,
+        "ls": -0.3132,
+        "dca": -0.3064
+    },
+    {
+        "startYr": 2000,
+        "duration": 4,
+        "ls": -0.1997,
+        "dca": -0.1927
+    },
+    {
+        "startYr": 2000,
+        "duration": 5,
+        "ls": -0.1478,
+        "dca": -0.1402
+    },
+    {
+        "startYr": 2000,
+        "duration": 10,
+        "ls": -0.1942,
+        "dca": -0.1868
+    },
+    {
+        "startYr": 2001,
+        "duration": 1,
+        "ls": -0.1709,
+        "dca": -0.158
+    },
+    {
+        "startYr": 2001,
+        "duration": 2,
+        "ls": -0.1755,
+        "dca": -0.1636
+    },
+    {
+        "startYr": 2001,
+        "duration": 3,
+        "ls": -0.0427,
+        "dca": -0.0286
+    },
+    {
+        "startYr": 2001,
+        "duration": 4,
+        "ls": 0.0204,
+        "dca": 0.0359
+    },
+    {
+        "startYr": 2001,
+        "duration": 5,
+        "ls": 0.1089,
+        "dca": 0.1246
+    },
+    {
+        "startYr": 2001,
+        "duration": 10,
+        "ls": 0.0668,
+        "dca": 0.0833
+    },
+    {
+        "startYr": 2002,
+        "duration": 1,
+        "ls": 0.0018,
+        "dca": 0.0287
+    },
+    {
+        "startYr": 2002,
+        "duration": 2,
+        "ls": 0.1581,
+        "dca": 0.1897
+    },
+    {
+        "startYr": 2002,
+        "duration": 3,
+        "ls": 0.236,
+        "dca": 0.2695
+    },
+    {
+        "startYr": 2002,
+        "duration": 4,
+        "ls": 0.3423,
+        "dca": 0.3783
+    },
+    {
+        "startYr": 2002,
+        "duration": 5,
+        "ls": 0.5081,
+        "dca": 0.5491
+    },
+    {
+        "startYr": 2002,
+        "duration": 10,
+        "ls": 0.415,
+        "dca": 0.4525
+    },
+    {
+        "startYr": 2003,
+        "duration": 1,
+        "ls": 0.1765,
+        "dca": 0.1439
+    },
+    {
+        "startYr": 2003,
+        "duration": 2,
+        "ls": 0.2525,
+        "dca": 0.2178
+    },
+    {
+        "startYr": 2003,
+        "duration": 3,
+        "ls": 0.3592,
+        "dca": 0.3211
+    },
+    {
+        "startYr": 2003,
+        "duration": 4,
+        "ls": 0.529,
+        "dca": 0.4868
+    },
+    {
+        "startYr": 2003,
+        "duration": 5,
+        "ls": 0.2668,
+        "dca": 0.2323
+    },
+    {
+        "startYr": 2003,
+        "duration": 10,
+        "ls": 0.7047,
+        "dca": 0.657
+    },
+    {
+        "startYr": 2004,
+        "duration": 1,
+        "ls": 0.067,
+        "dca": 0.0623
+    },
+    {
+        "startYr": 2004,
+        "duration": 2,
+        "ls": 0.1581,
+        "dca": 0.1527
+    },
+    {
+        "startYr": 2004,
+        "duration": 3,
+        "ls": 0.3029,
+        "dca": 0.297
+    },
+    {
+        "startYr": 2004,
+        "duration": 4,
+        "ls": 0.0703,
+        "dca": 0.0669
+    },
+    {
+        "startYr": 2004,
+        "duration": 5,
+        "ls": -0.1615,
+        "dca": -0.1662
+    },
+    {
+        "startYr": 2004,
+        "duration": 10,
+        "ls": 0.7058,
+        "dca": 0.6981
+    },
+    {
+        "startYr": 2005,
+        "duration": 1,
+        "ls": 0.0877,
+        "dca": 0.0794
+    },
+    {
+        "startYr": 2005,
+        "duration": 2,
+        "ls": 0.2233,
+        "dca": 0.2138
+    },
+    {
+        "startYr": 2005,
+        "duration": 3,
+        "ls": 0.0052,
+        "dca": -0.0014
+    },
+    {
+        "startYr": 2005,
+        "duration": 4,
+        "ls": -0.2135,
+        "dca": -0.22
+    },
+    {
+        "startYr": 2005,
+        "duration": 5,
+        "ls": -0.0557,
+        "dca": -0.063
+    },
+    {
+        "startYr": 2005,
+        "duration": 10,
+        "ls": 0.7064,
+        "dca": 0.6936
+    },
+    {
+        "startYr": 2006,
+        "duration": 1,
+        "ls": 0.1252,
+        "dca": 0.1124
+    },
+    {
+        "startYr": 2006,
+        "duration": 2,
+        "ls": -0.0765,
+        "dca": -0.086
+    },
+    {
+        "startYr": 2006,
+        "duration": 3,
+        "ls": -0.274,
+        "dca": -0.283
+    },
+    {
+        "startYr": 2006,
+        "duration": 4,
+        "ls": -0.1299,
+        "dca": -0.1396
+    },
+    {
+        "startYr": 2006,
+        "duration": 5,
+        "ls": -0.0316,
+        "dca": -0.042
+    },
+    {
+        "startYr": 2006,
+        "duration": 10,
+        "ls": 0.5968,
+        "dca": 0.5783
+    },
+    {
+        "startYr": 2007,
+        "duration": 1,
+        "ls": -0.1856,
+        "dca": -0.1833
+    },
+    {
+        "startYr": 2007,
+        "duration": 2,
+        "ls": -0.3528,
+        "dca": -0.3469
+    },
+    {
+        "startYr": 2007,
+        "duration": 3,
+        "ls": -0.2254,
+        "dca": -0.2197
+    },
+    {
+        "startYr": 2007,
+        "duration": 4,
+        "ls": -0.14,
+        "dca": -0.1344
+    },
+    {
+        "startYr": 2007,
+        "duration": 5,
+        "ls": -0.0616,
+        "dca": -0.0553
+    },
+    {
+        "startYr": 2007,
+        "duration": 10,
+        "ls": 0.6639,
+        "dca": 0.6768
+    },
+    {
+        "startYr": 2008,
+        "duration": 1,
+        "ls": -0.1711,
+        "dca": -0.1188
+    },
+    {
+        "startYr": 2008,
+        "duration": 2,
+        "ls": -0.0196,
+        "dca": 0.0374
+    },
+    {
+        "startYr": 2008,
+        "duration": 3,
+        "ls": 0.0771,
+        "dca": 0.1372
+    },
+    {
+        "startYr": 2008,
+        "duration": 4,
+        "ls": 0.1832,
+        "dca": 0.2541
+    },
+    {
+        "startYr": 2008,
+        "duration": 5,
+        "ls": 0.4207,
+        "dca": 0.5056
+    },
+    {
+        "startYr": 2008,
+        "duration": 10,
+        "ls": 1.3228,
+        "dca": 1.4632
+    },
+    {
+        "startYr": 2009,
+        "duration": 1,
+        "ls": 0.2167,
+        "dca": 0.1792
+    },
+    {
+        "startYr": 2009,
+        "duration": 2,
+        "ls": 0.3598,
+        "dca": 0.3174
+    },
+    {
+        "startYr": 2009,
+        "duration": 3,
+        "ls": 0.4749,
+        "dca": 0.429
+    },
+    {
+        "startYr": 2009,
+        "duration": 4,
+        "ls": 0.7518,
+        "dca": 0.6978
+    },
+    {
+        "startYr": 2009,
+        "duration": 5,
+        "ls": 1.0562,
+        "dca": 0.9926
+    },
+    {
+        "startYr": 2009,
+        "duration": 10,
+        "ls": 2.1071,
+        "dca": 2.0105
+    },
+    {
+        "startYr": 2010,
+        "duration": 1,
+        "ls": 0.1157,
+        "dca": 0.099
+    },
+    {
+        "startYr": 2010,
+        "duration": 2,
+        "ls": 0.2165,
+        "dca": 0.1966
+    },
+    {
+        "startYr": 2010,
+        "duration": 3,
+        "ls": 0.4502,
+        "dca": 0.4262
+    },
+    {
+        "startYr": 2010,
+        "duration": 4,
+        "ls": 0.6997,
+        "dca": 0.6716
+    },
+    {
+        "startYr": 2010,
+        "duration": 5,
+        "ls": 0.8109,
+        "dca": 0.7829
+    },
+    {
+        "startYr": 2010,
+        "duration": 10,
+        "ls": 1.8219,
+        "dca": 1.7699
+    },
+    {
+        "startYr": 2011,
+        "duration": 1,
+        "ls": 0.0956,
+        "dca": 0.0927
+    },
+    {
+        "startYr": 2011,
+        "duration": 2,
+        "ls": 0.3074,
+        "dca": 0.3043
+    },
+    {
+        "startYr": 2011,
+        "duration": 3,
+        "ls": 0.5307,
+        "dca": 0.5273
+    },
+    {
+        "startYr": 2011,
+        "duration": 4,
+        "ls": 0.6263,
+        "dca": 0.6242
+    },
+    {
+        "startYr": 2011,
+        "duration": 5,
+        "ls": 0.6561,
+        "dca": 0.6524
+    },
+    {
+        "startYr": 2011,
+        "duration": 10,
+        "ls": 2.3805,
+        "dca": 2.3727
+    },
+    {
+        "startYr": 2012,
+        "duration": 1,
+        "ls": 0.1974,
+        "dca": 0.1813
+    },
+    {
+        "startYr": 2012,
+        "duration": 2,
+        "ls": 0.4014,
+        "dca": 0.3825
+    },
+    {
+        "startYr": 2012,
+        "duration": 3,
+        "ls": 0.4902,
+        "dca": 0.4706
+    },
+    {
+        "startYr": 2012,
+        "duration": 4,
+        "ls": 0.5162,
+        "dca": 0.4962
+    },
+    {
+        "startYr": 2012,
+        "duration": 5,
+        "ls": 0.7741,
+        "dca": 0.7504
+    },
+    {
+        "startYr": 2012,
+        "duration": 10,
+        "ls": 1.953,
+        "dca": 1.9145
+    },
+    {
+        "startYr": 2013,
+        "duration": 1,
+        "ls": 0.175,
+        "dca": 0.1515
+    },
+    {
+        "startYr": 2013,
+        "duration": 2,
+        "ls": 0.2503,
+        "dca": 0.2252
+    },
+    {
+        "startYr": 2013,
+        "duration": 3,
+        "ls": 0.2722,
+        "dca": 0.2468
+    },
+    {
+        "startYr": 2013,
+        "duration": 4,
+        "ls": 0.4882,
+        "dca": 0.4584
+    },
+    {
+        "startYr": 2013,
+        "duration": 5,
+        "ls": 0.6618,
+        "dca": 0.628
+    },
+    {
+        "startYr": 2013,
+        "duration": 10,
+        "ls": 1.6013,
+        "dca": 1.5496
+    },
+    {
+        "startYr": 2014,
+        "duration": 1,
+        "ls": 0.0658,
+        "dca": 0.0524
+    },
+    {
+        "startYr": 2014,
+        "duration": 2,
+        "ls": 0.0853,
+        "dca": 0.072
+    },
+    {
+        "startYr": 2014,
+        "duration": 3,
+        "ls": 0.2696,
+        "dca": 0.254
+    },
+    {
+        "startYr": 2014,
+        "duration": 4,
+        "ls": 0.4159,
+        "dca": 0.3985
+    },
+    {
+        "startYr": 2014,
+        "duration": 5,
+        "ls": 0.5118,
+        "dca": 0.4933
+    },
+    {
+        "startYr": 2014,
+        "duration": 10,
+        "ls": 1.8093,
+        "dca": 1.775
+    },
+    {
+        "startYr": 2015,
+        "duration": 1,
+        "ls": 0.0202,
+        "dca": 0.0287
+    },
+    {
+        "startYr": 2015,
+        "duration": 2,
+        "ls": 0.1935,
+        "dca": 0.2034
+    },
+    {
+        "startYr": 2015,
+        "duration": 3,
+        "ls": 0.3289,
+        "dca": 0.3384
+    },
+    {
+        "startYr": 2015,
+        "duration": 4,
+        "ls": 0.4213,
+        "dca": 0.4332
+    },
+    {
+        "startYr": 2015,
+        "duration": 5,
+        "ls": 0.5625,
+        "dca": 0.5759
+    },
+    {
+        "startYr": 2015,
+        "duration": 10,
+        "ls": 1.7855,
+        "dca": 1.7827
+    },
+    {
+        "startYr": 2016,
+        "duration": 1,
+        "ls": 0.1742,
+        "dca": 0.1515
+    },
+    {
+        "startYr": 2016,
+        "duration": 2,
+        "ls": 0.3099,
+        "dca": 0.2848
+    },
+    {
+        "startYr": 2016,
+        "duration": 3,
+        "ls": 0.3981,
+        "dca": 0.3712
+    },
+    {
+        "startYr": 2016,
+        "duration": 4,
+        "ls": 0.5357,
+        "dca": 0.5056
+    },
+    {
+        "startYr": 2016,
+        "duration": 5,
+        "ls": 1.039,
+        "dca": 1.0002
+    },
+    {
+        "startYr": 2017,
+        "duration": 1,
+        "ls": 0.1168,
+        "dca": 0.0963
+    },
+    {
+        "startYr": 2017,
+        "duration": 2,
+        "ls": 0.1951,
+        "dca": 0.1731
+    },
+    {
+        "startYr": 2017,
+        "duration": 3,
+        "ls": 0.3133,
+        "dca": 0.2885
+    },
+    {
+        "startYr": 2017,
+        "duration": 4,
+        "ls": 0.7428,
+        "dca": 0.7104
+    },
+    {
+        "startYr": 2017,
+        "duration": 5,
+        "ls": 0.6686,
+        "dca": 0.6383
+    },
+    {
+        "startYr": 2018,
+        "duration": 1,
+        "ls": 0.0771,
+        "dca": 0.0791
+    },
+    {
+        "startYr": 2018,
+        "duration": 2,
+        "ls": 0.181,
+        "dca": 0.1843
+    },
+    {
+        "startYr": 2018,
+        "duration": 3,
+        "ls": 0.5707,
+        "dca": 0.574
+    },
+    {
+        "startYr": 2018,
+        "duration": 4,
+        "ls": 0.4887,
+        "dca": 0.4919
+    },
+    {
+        "startYr": 2018,
+        "duration": 5,
+        "ls": 0.5732,
+        "dca": 0.5761
+    },
+    {
+        "startYr": 2019,
+        "duration": 1,
+        "ls": 0.1018,
+        "dca": 0.0811
+    },
+    {
+        "startYr": 2019,
+        "duration": 2,
+        "ls": 0.4646,
+        "dca": 0.438
+    },
+    {
+        "startYr": 2019,
+        "duration": 3,
+        "ls": 0.3955,
+        "dca": 0.3696
+    },
+    {
+        "startYr": 2019,
+        "duration": 4,
+        "ls": 0.4682,
+        "dca": 0.4417
+    },
+    {
+        "startYr": 2019,
+        "duration": 5,
+        "ls": 0.8587,
+        "dca": 0.8246
+    },
+    {
+        "startYr": 2020,
+        "duration": 1,
+        "ls": 0.3434,
+        "dca": 0.3179
+    },
+    {
+        "startYr": 2020,
+        "duration": 2,
+        "ls": 0.2832,
+        "dca": 0.264
+    },
+    {
+        "startYr": 2020,
+        "duration": 3,
+        "ls": 0.3463,
+        "dca": 0.3224
+    },
+    {
+        "startYr": 2020,
+        "duration": 4,
+        "ls": 0.7045,
+        "dca": 0.6729
+    },
+    {
+        "startYr": 2020,
+        "duration": 5,
+        "ls": 0.9563,
+        "dca": 0.9534
+    },
+    {
+        "startYr": 2021,
+        "duration": 1,
+        "ls": -0.0409,
+        "dca": -0.0578
+    },
+    {
+        "startYr": 2021,
+        "duration": 2,
+        "ls": 0.007,
+        "dca": -0.0093
+    },
+    {
+        "startYr": 2021,
+        "duration": 3,
+        "ls": 0.2745,
+        "dca": 0.2538
+    },
+    {
+        "startYr": 2021,
+        "duration": 4,
+        "ls": 0.4428,
+        "dca": 0.4004
+    },
+    {
+        "startYr": 2022,
+        "duration": 1,
+        "ls": 0.0601,
+        "dca": 0.0716
+    },
+    {
+        "startYr": 2022,
+        "duration": 2,
+        "ls": 0.3447,
+        "dca": 0.3582
+    },
+    {
+        "startYr": 2022,
+        "duration": 3,
+        "ls": 0.3723,
+        "dca": 0.4012
+    },
+    {
+        "startYr": 2023,
+        "duration": 1,
+        "ls": 0.2709,
+        "dca": 0.2435
+    },
+    {
+        "startYr": 2023,
+        "duration": 2,
+        "ls": 0.4136,
+        "dca": 0.382
+    },
+    {
+        "startYr": 2024,
+        "duration": 1,
+        "ls": 0.1312,
+        "dca": 0.1045
+    }
+]

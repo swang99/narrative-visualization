@@ -1,181 +1,226 @@
+import { 
+	createTextBlock
+} from './chartUtil.js';
+
 // declare heatmap dimensions and margins
 const INVESTMENT = 100000;
-const margin = {top: 80, right: 25, bottom: 30, left: 40};
+const margin = {top: 10, right: 25, bottom: 30, left: 40};
 const width = 850;
-const height = 200;
+const height = 150;
 
-export async function generateHmapData(month) {
-	const data = await d3.json("data/spy_prices.json");
+const baseTime = 100;
+const stepTime = 10;
+const initDelay = 10;
+const transDuration = 1000;
+
+export function hmapHeader() {
+	const section = d3.select(".header-text")
 	
-	data.values.forEach(d => {
-		d.datetime = new Date(d.datetime);
-		d.close = +d.close;
+	createTextBlock({
+		html: section,
+		header: "h2",
+		displayText: "Lump Sum or DCA?",
+		transDuration: transDuration,
+		numWaits: 0,
+		highlight: false
 	});
 
-	const spyHist = data.values;
-	spyHist.sort((a, b) => a.datetime - b.datetime);
-	const spyHistAMth = spyHist.filter(d => d.datetime.getMonth() === month - 1);
-
-	const seenYears = new Set();
-	const spyHist_yearly = spyHistAMth.filter(d => {
-		const year = d.datetime.getFullYear();
-		if (!seenYears.has(year)) {
-			seenYears.add(year);
-			return true;
-		}
-		return false;
+	createTextBlock({
+		html: section,
+		header: "p",
+		color: "#666666",
+		displayText: "A comparison of the strategies on various start years and investment timeframes.",
+		transDuration: transDuration,
+		numWaits: 0,
+		highlight: false
 	});
 
-	const durations = [1, 2, 3, 4, 5, 10];
-	const res = [];
+	const legendDiv = section.append("div")
+		.attr("class", "gradient-legend")
+		.style("overflow", "hidden")
+		.style("opacity", 0);
+	
+	legendDiv.append("p")
+		.text("+10% LS")
+		.style("float", "left")
+		.style("margin", "0")
+		.style("color", "#ffffff");
 
-	for (let i = 0; i < spyHist_yearly.length; i++) {
-		const startDate = spyHist_yearly[i].datetime;
-		const startPrice = spyHist_yearly[i].close;
-
-		for (let dur of durations) {
-			const endEntry = spyHist_yearly[Math.min(i + dur, spyHist_yearly.length - 1)];
-			const inbound = i + dur <= spyHist_yearly.length - 1
-			
-			// lump sum 
-			const lsReturn =  inbound ? (endEntry.close - startPrice) / startPrice : 0;
-
-			// dca
-			let numDcas = 12;
-			let monthlyInvestment = INVESTMENT / numDcas;
-			let dcaShares = 0;
-
-			const startIdx = spyHist.findIndex(d => d.datetime.getTime() === startDate.getTime());
-
-			for (let j = 0; j < numDcas; j++) {
-				const entry = spyHist[startIdx + j];
-				if (!entry) break;
-				dcaShares += monthlyInvestment / entry.close;
-			}
-
-			let dcaReturn = inbound ? (dcaShares * endEntry.close - INVESTMENT) / INVESTMENT : 0;
-
-			res.push({
-				startYr: startDate.getFullYear(),
-				duration: dur,
-				ls: +lsReturn.toFixed(4),
-				dca: +dcaReturn.toFixed(4)
-			});
-		}
-	}
-
-	hmapFrame(res);
+	legendDiv.append("p")
+		.text("+10% DCA")
+		.style("float", "right")
+		.style("margin", "0")
+		.style("color", "#ffffff");	
+	
+	legendDiv.transition()
+		.delay(baseTime * (initDelay + stepTime * 2))
+		.duration(transDuration)
+		.style("opacity", 1);
 }
 
-export async function hmapFrame(hmapData) {
-	// append the svg object to the body of the page
-	let svg = d3.select("#lump-dca-heatmap")
-	  .append("svg")
-	  .attr("width", width + margin.left + margin.right)
-	  .attr("height", height + margin.top + margin.bottom)
-	  .append("g")
-	  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+export async function hmapFrame(hmapData, hmapHeaderTxt) {
+    const data = await d3.json(hmapData); 
 
-	// build axes and scales
-	const durationDomain = ['1Y', '2Y', '3Y', '4Y', '5Y', '10Y'];
-	const durationMap = { 1: '1Y', 2: '2Y', 3: '3Y', 4: '4Y', 5: '5Y', 10: '10Y'};
-	const yrDomain = Array.from({ length: 2024 - 1993 + 1 }, (_, i) => 2024 - i);
-	let x = d3.scaleBand().domain(yrDomain).range([width, 0]).padding(0.05);
-	let y = d3.scaleBand().domain(durationDomain).range([0, height]).padding(0.05);
-	
-	svg.append("g")
-		.style("font-size", 12)
-		.attr("transform", "translate(0," + height + ")")
-		.call(d3.axisBottom(x).tickValues(
-        	x.domain().filter((d, i) => i % 2 === 0) // show every other year
-      	))
-		.call(g => g.selectAll(".tick line").remove())
-		.select(".domain").remove();
-	
-	svg.append("g")
-		.style("font-size", 12)
-		.call(d3.axisLeft(y).tickSize(0))
-		.select(".domain").remove();
+    const hmapSection = d3.select("#lump-dca-heatmap");
 
-	// color scale
-	const colorScale = d3.scaleSequential()
-		.interpolator(d3.interpolatePiYG)
-		.domain([-0.1,0.1])
+    // heatmap header
+    hmapSection.append("div")
+        .append("p")
+        .text(hmapHeaderTxt)
+        .style("color", "#666666")
+        .style("opacity", 0)
+        .transition()
+        .delay(baseTime * (initDelay + stepTime * 2))
+        .duration(transDuration)
+        .style("opacity", 1);
 
-	// create tooltip
-	const tooltip = d3.select("#lump-dca-heatmap")
-		.append("div")
+    // create svg
+    const svg = hmapSection.append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    // Axes and scales (same as before)
+    const durationDomain = ['1Y', '2Y', '3Y', '4Y', '5Y', '10Y'];
+    const durationMap = { 1: '1Y', 2: '2Y', 3: '3Y', 4: '4Y', 5: '5Y', 10: '10Y' };
+    const yrDomain = Array.from({ length: 2024 - 1993 + 1 }, (_, i) => 2024 - i);
+    const x = d3.scaleBand().domain(yrDomain).range([width, 0]).padding(0.05);
+    const y = d3.scaleBand().domain(durationDomain).range([0, height]).padding(0.05);
+
+    // x-axis
+    const xAxis = svg.append("g")
+        .style("font-size", 12)
+        .style("opacity", 0)
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x).tickValues(x.domain().filter((d, i) => i % 2 === 0)));
+
+    xAxis.selectAll(".tick line").remove();
+    xAxis.select(".domain").remove();
+
+    xAxis.transition()
+        .delay(baseTime * (initDelay + stepTime * 2))
+        .duration(transDuration)
+        .style("opacity", 1);
+
+    // y-axis
+    const yAxis = svg.append("g")
+        .style("font-size", 12)
+        .style("opacity", 0)
+        .call(d3.axisLeft(y).tickSize(0));
+
+    yAxis.select(".domain").remove();
+
+    yAxis.transition()
+        .delay(baseTime * (initDelay + stepTime * 2))
+        .duration(transDuration)
+        .style("opacity", 1);
+
+    // Color scale
+    const colorScale = d3.scaleSequential()
+        .interpolator(d3.interpolatePiYG)
+        .domain([-0.1, 0.1]);
+
+    // Tooltip setup (same as before)
+    const tooltip = d3.select("#lump-dca-heatmap")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("position", "absolute")
+        .style("background-color", "white")
+        .style("border", "solid 2px")
+        .style("border-radius", "5px")
+        .style("padding", "5px");
+
+    // Tooltip event handlers (same as before)
+    const mouseover = function (event, d) {
+        tooltip.style("opacity", 1);
+        d3.select(this)
+            .style("stroke", "black")
+            .style("opacity", 1);
+    };
+
+    const mousemove = function (event, d) {
+        const [mouseX, mouseY] = d3.pointer(event);
+        let label = "⏤ N/A";
+
+        if (d.ls > d.dca) {
+            label = "+" + (100 * (d.ls - d.dca)).toFixed(2) + "% LS";
+        } else if (d.ls < d.dca) {
+            label = "+" + (100 * (d.dca - d.ls)).toFixed(2) + "% DCA";
+        }
+
+        tooltip.html(label)
+            .style("left", (event.pageX + 10) + "px")
+            .style("top", (event.pageY - 28) + "px")
+            .style("font-size", "13px");
+    };
+
+    const mouseleave = function (event, d) {
+        tooltip.style("opacity", 0);
+        d3.select(this)
+            .style("stroke", "none")
+            .style("opacity", 0.8);
+    };
+
+    // heatmap squares
+    svg.selectAll("rect")
+        .data(data, d => d.startYr + ":" + durationMap[d.duration])
+        .join(
+            enter => {
+                const rects = enter.append("rect")
+                    .attr("x", d => x(d.startYr))
+                    .attr("y", d => y(durationMap[d.duration]))
+                    .attr("rx", 4).attr("ry", 4)
+                    .attr("width", x.bandwidth())
+                    .attr("height", y.bandwidth())
+                    .style("fill", d => colorScale(d.ls - d.dca))
+                    .style("stroke-width", 4)
+                    .style("stroke", "none")
+                    .style("opacity", 0);
+
+                rects.transition()
+                    .delay(baseTime * (initDelay + stepTime * 2))
+                    .duration(600)
+                    .style("opacity", 0.8)
+                    .on("end", function () {
+                        d3.select(this)
+                            .on("mouseover", mouseover)
+                            .on("mousemove", mousemove)
+                            .on("mouseleave", mouseleave);
+                    });
+
+                return rects;
+            },
+            update => update
+                .transition()
+                .duration(600)
+                .style("fill", d => colorScale(d.ls - d.dca))
+        );
+
+    const frameButtons = d3.select(".frame-toggle");
+    frameButtons.transition()
+        .delay(baseTime * (initDelay + stepTime * 3))
+        .duration(transDuration)
+        .style("opacity", 1)
+        .style("padding", "10px")
+        .style("border-radius", "10px");
+}
+
+hmapHeader();
+await hmapFrame("data/heatmap_12.json", "DCA over 12 months");
+await hmapFrame("data/heatmap_24.json", "DCA over 24 months");
+
+// fade out on any link click
+d3.selectAll("a").on("click", function(event) {
+	event.preventDefault();
+	const target = d3.select(this).attr("href");
+
+	d3.select("body")
+		.transition()
+		.duration(500)
 		.style("opacity", 0)
-		.attr("class", "tooltip")
-		.style("position", "absolute")
-		.style("background-color", "white")
-		.style("border", "solid")
-		.style("border-width", "2px")
-		.style("border-radius", "5px")
-		.style("padding", "5px")
-
-	// tooltip mouse functions: hover / move / leave a cell
-	const mouseover = function(event, d) {
-		tooltip.style("opacity", 1);
-		d3.select(this)
-			.style("stroke", "black")
-			.style("opacity", 1);
-	};
-
-	const mousemove = function(event, d) {
-		const [x, y] = d3.pointer(event);
-		
-		let label = "⏤ N/A";
-		if (d.ls > d.dca) {
-			label = "+" + (100 * (d.ls - d.dca)).toFixed(2) + "% LS"
-		} else if (d.ls < d.dca) {
-			label = "+" + (100 * (d.dca - d.ls)).toFixed(2) + "% DCA"
-		}
-		
-		tooltip.html(label)
-			.style("left", (x + 40) + "px")
-			.style("top", (y + 20) + "px");
-	};
-
-	const mouseleave = function(event, d) {
-		tooltip.style("opacity", 0)
-		d3.select(this)
-		  .style("stroke", "none")
-		  .style("opacity", 0.8)
-	}
-
-	// add the squares
-	svg.selectAll()
-		.data(hmapData, function(d) {return d.year+':'+durationMap[d.duration];})
-		.enter()
-		.append("rect")
-		.attr("x", function(d) { return x(d.startYr); })
-		.attr("y", function(d) { return y(durationMap[d.duration]) })
-		.attr("rx", 4)
-		.attr("ry", 4)
-		.attr("width", x.bandwidth())
-		.attr("height", y.bandwidth())
-		.style("fill", function(d) { return colorScale(d.ls - d.dca); })
-		.style("stroke-width", 4)
-		.style("stroke", "none")
-		.style("opacity", 0.8)
-		.on("mouseover", mouseover)
-		.on("mousemove", mousemove)
-		.on("mouseleave", mouseleave)
-
-	// heatmap title
-	svg.append("text")
-		.attr("x", 0).attr("y", -50)
-		.attr("text-anchor", "left")
-		.style("font-size", "22px")
-		.text("Lump Sum or DCA?");
-
-	// heatmap subtitle
-	svg.append("text")
-		.attr("x", 0).attr("y", -20)
-		.attr("text-anchor", "left")
-		.style("fill", "grey")
-		.text("A comparison of the strategies on various start years and investment timeframes.");
-	}
-
-generateHmapData(1);
+		.on("end", () => {
+			window.location.href = target;
+		});
+});

@@ -16,7 +16,7 @@
   --white:       #ffffff;
   --dark-text:   #222222;
   --muted-text:  #010000;
-  --highlight:   #ffc107;
+  --highlight:   #0e0e0c;
 }
 
 html, body {
@@ -51,7 +51,7 @@ a {
 /* ===== Narrative Sections ===== */
 .step {
   position: relative;
-  padding: 40px;
+  padding: 15px 40px 40px 40px;
   transition: background-color 0.3s ease;
 }
 
@@ -75,9 +75,18 @@ a:hover {
 }
 
 .gradient-legend {
-	margin: 20px;
+	margin: 15px 0px;
+	padding: 2px;
+	font-size: 12px;
 	border-radius: 5px;
-	width: 300px;
+	width: 400px;
 	background: linear-gradient(to right, #4F7A46 0%, #ffffff 50%, #9B356C 100%);
 	color: #ffffff;
+}
+
+.dot-progress {
+	margin: 10px;
+	text-align: center;
+	color: var(--light-gray);
+	pointer-events: none;
 }

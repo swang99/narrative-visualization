@@ -8,7 +8,6 @@ import {
 const INVESTMENT = 100000;
 const lsInvestDate = new Date("2008-10-20");
 const altDate = new Date("2022-10-03");
-const waitInvestDate = new Date("2010-10-25")
 
 // declare chart dimensions and margins
 const width = 1000;
@@ -57,10 +56,22 @@ function startFrame() {
 	// header
 	createTextBlock({
 		html: section,
+		header: "h2",
+		displayText: strategy === "lump" ? 
+		  "💰 You invested the 100K inheritance in one go!" : 
+		  "💰 You spread out the 100K inheritance over a year!",
+		color: strategy === "lump" ? "#528347" : "#8E0152",
+		transDuration: transDuration,
+		numWaits: 0,
+		highlight: false
+	});
+
+	createTextBlock({
+		html: section,
 		displayText: "Fast forward to July 2025, here's how that investment progressed.",
 		transDuration: transDuration,
-		numWaits: 1,
-		color: "#0077cc",
+		numWaits: 0,
+		color: strategy === "lump" ? "#528347" : "#8E0152",
 		highlight: false
 	});
 
@@ -69,7 +80,7 @@ function startFrame() {
 		header: "p",
 		displayText: "The two strategies follow each other very closely, but lump sum outperforms DCA by ~2.3%",
 		transDuration: transDuration,
-		numWaits: 1,
+		numWaits: 0,
 		color: "#666666",
 		highlight: false
 	});
@@ -119,8 +130,8 @@ function startFrame() {
 			displayText: `💰 Lump Sum (All In): ${formatValue(INVESTMENT)} 
 			              ➡️ ${formatValue(lsDetails[0])}.`,
 			transDuration: 1000,
-			numWaits: 10,
-			color: "#00b26f",
+			numWaits: 8,
+			color: "#528347",
 			highlight: strategy === 'lump'
 		});
 
@@ -129,9 +140,10 @@ function startFrame() {
 			displayText: `📆 DCA (Spread Over 12 Months): ${formatValue(INVESTMENT)} 
 			              ➡️ ${formatValue(dcaDetails[0])}.`,
 			transDuration: 1000,
-			numWaits: 10,
-			color: "#0077cc",
-			highlight: strategy === 'dca'
+			numWaits: 8,
+			color: "#8E0152",
+			highlight: strategy === 'dca',
+			highlightColor: "#8e015141"
 		});
 
 		createTextBlock({
@@ -139,7 +151,7 @@ function startFrame() {
 			header: "p",
 			displayText: `Returns may differ based on lucky timing, so how do these strategies really compare across a 30-year period? Find out more ⬇️`,
 			transDuration: 1000,
-			numWaits: 10,
+			numWaits: 8,
 			color: "#666666",
 			highlight: false
 		});
@@ -203,7 +215,7 @@ function drawLineChart(postInvest, lsDetails, dcaInvest, dcaDetails, strategy) {
           .attr("y", 10)
           .attr("fill", "currentColor")
           .attr("text-anchor", "start")
-          .text("↑ Weekly close ($)"));
+          .text("↑ Value ($)"));
 
     // fade in 
 	svg.transition()
@@ -214,7 +226,7 @@ function drawLineChart(postInvest, lsDetails, dcaInvest, dcaDetails, strategy) {
 	const lsPostPath = svg.append("path")
 		.datum(postInvest)
 		.attr("fill", "none")
-		.attr("stroke", "#00b26f")
+		.attr("stroke", "#528347")
 		.attr("stroke-width", 2)
 		.attr("opacity", strategy === 'lump' ? 1 : 0.3)
 		.attr("d", lumpSumLine);
@@ -222,7 +234,7 @@ function drawLineChart(postInvest, lsDetails, dcaInvest, dcaDetails, strategy) {
 	const dcaPath = svg.append("path")
 		.datum(dcaInvest)
 		.attr("fill", "none")
-		.attr("stroke", "#0077cc")
+		.attr("stroke", "#8E0152")
 		.attr("stroke-width", 2)
 		.attr("opacity", strategy === 'dca' ? 1 : 0.3)
 		.attr("d", dcaLine);
@@ -285,12 +297,19 @@ function drawLineChart(postInvest, lsDetails, dcaInvest, dcaDetails, strategy) {
 		path.attr("d", `M${-w / 2 - 10},5H-5l5,-5l5,5H${w / 2 + 10}v${h + 20}h-${w + 20}z`);
 	}
 
-	drawTrendLine(lsPostPath, 7000);
-	drawTrendLine(dcaPath, 7000);
+	drawTrendLine(lsPostPath, 4000);
+	drawTrendLine(dcaPath, 4000);
 
 	// annotations
-	finalValueDot(svg, x, y, "#00b26f", lsDetails, postInvest[postInvest.length - 1].datetime, strategy === 'lump');
-	finalValueDot(svg, x, y, "#0077cc", dcaDetails, dcaInvest[dcaInvest.length - 1].datetime, strategy === 'dca');
+	finalValueDot(svg, x, y, "#528347", lsDetails, postInvest[postInvest.length - 1].datetime, strategy === 'lump');
+	finalValueDot(svg, x, y, "#8E0152", dcaDetails, dcaInvest[dcaInvest.length - 1].datetime, strategy === 'dca');
+
+	d3.selectAll("a")
+		.transition()
+		.duration(100)
+		.on("end", function () {
+			d3.select(this).style("pointer-events", "auto");
+		});
 	
 	return svg.node();
 }

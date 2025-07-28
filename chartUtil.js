@@ -60,7 +60,7 @@ export function getDcaDetails(postInvest, investDates, investment) {
 }
 
 /* text block */
-export function createTextBlock({ html, displayText, transDuration, numWaits, header="h3",color="#0077cc", baseTime=100, stepTime=10, initDelay=10, highlight=true, opacityTrans=false }) {
+export function createTextBlock({ html, displayText, transDuration, numWaits, header="h3",color="#0077cc", baseTime=100, stepTime=10, initDelay=10, highlight=true, highlightColor="#d1fed9ff", opacityTrans=false }) {
 	html.append(header)
 		.style("opacity", opacityTrans ? 1 : 0)
 		.style("color", color)
@@ -69,7 +69,7 @@ export function createTextBlock({ html, displayText, transDuration, numWaits, he
 		.delay(baseTime * (initDelay + stepTime * numWaits))
 		.duration(transDuration)
 		.style("opacity", highlight ? 1 : 0.8)
-		.style("background-color", highlight ? "#d1fed9ff" : "#ffffff");
+		.style("background-color", highlight ? highlightColor : "#ffffff");
 }
 
 /* fade entire HTML on link click */
