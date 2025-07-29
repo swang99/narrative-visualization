@@ -78,6 +78,7 @@ function startStory() {
 			.style("background-color", "#bae2ffff")
 			.style("padding", "10px")
 			.style("border-radius", "10px")
+			.selectAll("a").style("pointer-events", "auto");
 	});
 }
 

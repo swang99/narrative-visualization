@@ -42,7 +42,7 @@ export function hmapHeader() {
 	})
 
 	// heatmap parameters
-	d3.select(".dropdown-group").style("opacity", 0)
+	d3.select(".dropdown-group").style("opacity", 0);
 	fadeIn(d3.select(".dropdown-group"), 2, 1, hmapConfig.time);
 }
 

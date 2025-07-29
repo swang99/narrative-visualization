@@ -93,6 +93,7 @@ a:hover {
 }
 
 .dropdown-group {
+	opacity: 0;
 	margin: 30px 0px;
 	color: #666666;
 }
