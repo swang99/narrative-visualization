@@ -1,7 +1,8 @@
 import { 
 	investDateAnnotate, drawTrendLine,
 	getDcaDetails, getLsDetails, createTextBlock, 
-	formatValue, formatDate
+	formatValue, formatDate,
+	linkFadeOut
 } from './chartUtil.js';
 
 // dates + data for frame 2
@@ -43,7 +44,6 @@ function finalValueDot(svg, x, y, color, investDetails, finalDate, highlight) {
 
 function startFrame() {
 	const section = d3.select(".header-text")
-	const section2 = d3.select(".header-text-2")
 	const section3 = d3.select(".header-text-3")
 	const params = new URLSearchParams(window.location.search);
 	const strategy = params.get("strategy");  // "lump", "dca"
@@ -316,17 +316,4 @@ function drawLineChart(postInvest, lsDetails, dcaInvest, dcaDetails, strategy) {
 
 // start next frame of story
 startFrame();
-
-// fade out on any link click
-d3.selectAll("a").on("click", function(event) {
-	event.preventDefault();
-	const target = d3.select(this).attr("href");
-
-	d3.select("body")
-		.transition()
-		.duration(500)
-		.style("opacity", 0)
-		.on("end", () => {
-			window.location.href = target;
-		});
-});
+linkFadeOut();

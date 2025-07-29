@@ -12,14 +12,46 @@
 
 	<body>
 		<section class="step">
+			<div class="dot-progress"> ● ● ● ● </div>
 			<div class="header-text"></div>
+
+			<div class="dropdown-container">
+				<div class="dropdown-group">
+					<label for="month-select">Start Month — </label>
+					<select class="heatmap-param" id="month-select">
+						<option value="1">January</option>
+						<option value="2">February</option>
+						<option value="3">March</option>
+						<option value="4">April</option>
+						<option value="5">May</option>
+						<option value="6">June</option>
+						<option value="7">July</option>
+						<option value="8">August</option>
+						<option value="9">September</option>
+						<option value="10">October</option>
+						<option value="11">November</option>
+						<option value="12">December</option>
+					</select>
+					
+					<label for="dca-select">DCA Duration (months) — </label>
+					<select class="heatmap-param" id="dca-select">
+						<option value="12">12</option>
+						<option value="24">24</option>
+						<option value="36">36</option>
+						<option value="48">48</option>
+					</select>
+				</div>
+			</div>
+
+
 			<div id="lump-dca-heatmap"></div>
 			<div class="frame-toggle" style="opacity: 0">
+				<a href="heatmap.html">◀️ Back</a>
 				<a href="index.html"> 🔁 Play again</a>
 			</div>
 		</section>
 	</body>
 
 	<script src="https://d3js.org/d3.v7.min.js"></script>
-	<script src="heatmap.js" type="module"></script>
+	<script src="finish.js" type="module"></script>
 </html>

@@ -66,6 +66,7 @@ a:hover {
 }
 
 .strategy-buttons {
+	opacity: 0;
 	width: 832px;
 }
 
@@ -75,7 +76,7 @@ a:hover {
 }
 
 .gradient-legend {
-	margin: 15px 0px;
+	margin: 30px 0px;
 	padding: 2px;
 	font-size: 12px;
 	border-radius: 5px;
@@ -89,4 +90,18 @@ a:hover {
 	text-align: center;
 	color: var(--light-gray);
 	pointer-events: none;
+}
+
+.dropdown-group {
+	margin: 30px 0px;
+	color: #666666;
+}
+
+.dropdown-group select {
+	color: #666666;
+}
+
+.heatmap-param {
+	margin-right: 50px;
+	font-family: 'Lato', 'Arial', sans-serif;
 }
